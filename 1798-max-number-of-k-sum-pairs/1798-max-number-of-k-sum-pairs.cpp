@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int maxOperations(vector<int>& nums, int k) {
+    int maxOperations(vector<int>& nums, int k) {\
+    /*
     sort(nums.begin(),nums.end());
     int count=0;
     int i=0,j=nums.size()-1;
@@ -21,6 +22,22 @@ public:
         else
         i++;
     }
-    return count;   
+    return count;  */
+    int ans=0;
+    unordered_map<int,int>freqMap;
+    int n=nums.size();
+    for(int i=0;i<n;i++)
+    {
+        if(freqMap[k-nums[i]]>0)
+        {
+            ans++;
+            freqMap[k-nums[i]]--;
+        }
+        else
+        {
+            freqMap[nums[i]]++;
+        }
+    }
+    return ans;
     }
 };
