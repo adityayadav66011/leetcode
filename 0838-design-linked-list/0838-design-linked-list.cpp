@@ -1,5 +1,5 @@
 class MyLinkedList {
-private:
+public:
     struct Node {
         int val;
         Node* next;
@@ -7,14 +7,9 @@ private:
     };
     
     Node* head;
-    int size;
+    int size=0;
     
-public:
-    MyLinkedList() {
-        head = nullptr;
-        size = 0;
-    }
-    
+    MyLinkedList(): head(nullptr){}
     int get(int index) {
         if (index < 0 || index >= size) {
             return -1; // Index is invalid
