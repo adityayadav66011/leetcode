@@ -9,20 +9,48 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-    ListNode *temp;
-    while(headA!=NULL)
+/* length of both the linkedlist*/
+    int n=0;
+    int m=0;
+    ListNode* dummy1=headA;
+    ListNode* dummy2=headB;
+    while(dummy1!=NULL)
     {
-        temp=headB;
-        while(temp!=NULL)
+        n++;
+        dummy1=dummy1->next;
+    }
+    while(dummy2!=NULL)
+    {
+        m++;
+        dummy2=dummy2->next;
+    }
+    int t=abs(n-m);
+    if(n>m)
+    {
+        while(t)
         {
-            if(headA==temp)
-            {
-            return headA;
+            headA=headA->next;
+            t--;
         }
-        temp=temp->next;
-    }    
-    headA=headA->next;
+    }
+    else
+    {
+        while(t)
+        {
+            headB=headB->next;
+            t--;
+        }
+    }
+    while(headA&&headB)
+    {
+        if(headA==headB)
+        {
+            return headB;
+        }
+        headA=headA->next;
+        headB=headB->next;
     }
     return NULL;
-}
+
+    }
 };
