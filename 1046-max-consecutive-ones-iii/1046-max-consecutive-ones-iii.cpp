@@ -15,7 +15,6 @@ public:
             left ++;
         }
         if (numZeroes <= k) {
-            // this is probably what I could come up during interview...
             MAX = max(MAX, right-left +1 );
         }
     }
