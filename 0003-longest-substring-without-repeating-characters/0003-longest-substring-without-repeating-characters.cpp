@@ -6,7 +6,7 @@ public:
     
 		int i = 0, j = 0, n = s.size(), ans = 0;
     
-		while( i<n && j<n)
+		while(j<n)
 		{
 			if(set.find(s[j]) == set.end()) //If the character does not in the set
 			{
